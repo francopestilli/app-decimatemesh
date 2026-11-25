@@ -2,6 +2,49 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.148-blue.svg)](https://doi.org/10.25663/brainlife.app.148)
 
 # app-decimatemesh
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Reduces the vertex and face count of 3D surface meshes with VTK decimation and optionally converts them between vtk, ply, stl and glTF formats.**
+
+Reads every surface of the chosen input format in the input directory, decimates it with vtkDecimatePro (topology preserved) by the requested fraction, cleans it and writes it in the chosen output format (glb output is produced via STL). A color.json is copied through. Use it to make large meshes lighter for visualisation or to convert mesh formats.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/3Dsurfaces` |
+| 📤 **Outputs** | `neuro/3Dsurfaces` |
+| 🐳 **Container** | `lukin0110/docker-vtk-python` |
+| ⚙️ **Resources** | 8 CPUs · 0.42 h walltime |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.148](https://doi.org/10.25663/brainlife.app.148) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `0` | `neuro/3Dsurfaces` | yes | Directory of 3D surface meshes (vtk, ply or stl). |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `0` | `neuro/3Dsurfaces` | Decimated (and optionally converted) surface meshes, one per input surface. |
+
+<details>
+<summary><b>⚙️ Parameters</b> (3)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `reduction` | number | `0.1` | percentage you would like to reduce the surface by |
+| `infiletype` | enum | `vtk` | input data filetype Options: `stl`, `ply`, `vtk`. |
+| `outfiletype` | enum | `vtk` | output data filetype Options: `stl`, `ply`, `vtk`, `glb`. |
+
+</details>
+
+📚 **References used by this App:**
+- Kitchell L. Shape Analysis of Human White Matter Tracts: An Examination of Normal Morphological Variability and the Association Between Morphology, Brain Size, and Behavior. Indiana University (2020).
+
+<!-- brainlife-app:end -->
+
 This App reduces the face/vertex count of mesh.
 
 ### Author
